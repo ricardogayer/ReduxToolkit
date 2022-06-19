@@ -6,6 +6,9 @@
 * Reducer - Faz a manipulação dos estados.
 * View - Consome os dados do store e executam action para alteração no store via dispatcher que chama o reducer.
 * Middleware - Executa as chamadas assincronas.
+* Thunk - Função para chamadas assincrônas (API por exemplo)
+
+![Redux Toolkit](rtk/rtk.001.jpeg)
 
 ## Configurações necessárias
 
@@ -124,3 +127,44 @@ export default App;
 * useSelector - Para acessar os objetos armazenados na store.
 * useDispatch - Para executar uma ação de mudança do estado da store.
 * increment() - Método do slice para executar a ação!
+
+## Snip para criação de slices
+
+Shift + Command + P
+Configure User Snippet
+JavaScript
+Não pode ter TAB no template!
+
+```json
+{
+	"Criar um Slice de Redux": {
+	"prefix": "redux-slice",
+	"body": [
+		"import { createSlice } from '@reduxjs/toolkit';",
+		"",
+		"const initialState = {",
+		"   value: 0,",
+		"}",
+		"",
+		"export const ${1:counter}Slice = createSlice({",
+		"   name: '${1:counter}',",
+		"   initialState,",
+		"      reducers: {",
+		"         increment: (state) => {",
+		"            state.value += 1",
+		"         },",
+		"         decrement: (state) => {",
+		"            state.value -= 1",
+		"         },",
+		"         incrementByAmount: (state, action) => {",
+		"            state.value += action.payload",
+		"         },",
+		"      },",
+		"})",
+		"",
+		"export const { increment, decrement, incrementByAmount } = ${1:counter}Slice.actions;"
+    ],
+		"description": "Criar um Slice de Redux"
+	}
+}
+```

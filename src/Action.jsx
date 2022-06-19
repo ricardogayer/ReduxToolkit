@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { increment } from './store/slices/counter/counterSlice';
+import { incrementByAmount } from './store/slices/counter/counterSlice';
 
 const Action = () => {
 
@@ -9,7 +9,7 @@ const Action = () => {
   return (
     <div>
         <h1> Counter </h1>
-        <button onClick={() => dispatch(increment())}>Incrementar</button>
+        <button onClick={() => dispatch(incrementByAmount(2))}>Incrementar</button>
     </div>
   )
 }
